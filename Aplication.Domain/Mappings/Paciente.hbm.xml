@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="Aplication.Domain"
+                   namespace="Aplication.Domain.Entities">
+
+	<class name="Aplication.Domain.Entities.Paciente" table="paciente">
+		<id name="Id" column="id" type="int">
+			<generator class="sequence">
+				<param name="sequence">paciente_seq</param>
+			</generator>
+		</id>
+
+		<property name="Nome" column="nome" type="string" length="25" not-null="true" unique="true"/>
+		<property name="Email" column="email" type="string" length="100" not-null="true" />
+		<property name="Observacao" column="observacao" type="string" length="100" not-null="true" />
+		<property name="DataCadastro" column="d_datacadastro" type="Date" />
+		<property name="DataNascimento" column="d_datanascimento" type="Date" />
+		<property name="SituacaoPaciente" column="situacao" type="int" />
+		<property name="SituacaoGrupoRisco" column="gruporisco" type="int" />
+	</class>
+
+</hibernate-mapping>

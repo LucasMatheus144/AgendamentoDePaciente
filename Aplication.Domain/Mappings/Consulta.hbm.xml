@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Aplication.Domain"
+                   namespace="Aplication.Domain.Entities">
+
+	<class name="Consulta" table="consulta">
+
+		<id name="Id" column="id" type="int">
+			<generator class="sequence">
+				<param name="sequence">consulta_seq</param>
+			</generator>
+		</id>
+
+		<property name="PrevisaoConsulta" column="d_previsao" type="Date" />
+		<property name="DataCadastro" column="d_datacadastro" type="Date" />
+		<property name="SituacaoConsulta" column="situacao" type="int" />
+
+		
+		<many-to-one name="Paciente"
+					 column="paciente_id"
+					 class="Aplication.Domain.Entities.Paciente"
+					 not-null="true"
+					 foreign-key="fk_consulta_paciente" />
+
+	</class>
+
+</hibernate-mapping>
